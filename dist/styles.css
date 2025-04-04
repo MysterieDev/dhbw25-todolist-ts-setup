@@ -1,0 +1,16 @@
+li {
+    cursor: pointer;
+}
+
+li:hover{
+    background-color: aliceblue;
+}
+
+.todo-done{
+ color: darkgrey;   
+}
+
+.todo-is-important{
+    font-weight: bold;
+    color: darkblue;
+}
