@@ -4,3 +4,8 @@ export const TODOS_FORM_IS_IMPORTANT_EL = document.querySelector('#todo_is_impor
 export const OPEN_TODOS_LIST_EL = document.querySelector('#open_todos_list') as HTMLUListElement;
 export const CLOSED_TODOS_LIST_EL = document.querySelector('#closed_todos_list') as HTMLUListElement;
 
+export function createDeleteButtonForTodoItem(){
+    const deleteButton = document.createElement("BUTTON");
+    deleteButton.innerHTML = "x";
+    return deleteButton;
+}

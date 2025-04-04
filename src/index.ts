@@ -1,6 +1,7 @@
 import { getItems, saveItems } from "./data-storage";
 import {
     CLOSED_TODOS_LIST_EL,
+    createDeleteButtonForTodoItem,
     OPEN_TODOS_LIST_EL, TODOS_FORM_EL,
     TODOS_FORM_IS_IMPORTANT_EL,
     TODOS_FORM_NAME_EL } from "./dom-utils";
@@ -62,6 +63,11 @@ function renderTodoList() {
         }
 
         LI_ELEMENT.addEventListener("click", () => toggleTodo(todoListItem.id))
+
+        const button = createDeleteButtonForTodoItem();
+        button.addEventListener("click",()=> deleteTodoItem(todoListItem.id));
+        LI_ELEMENT.appendChild(button);
+
         OPEN_TODOS_LIST_EL.appendChild(LI_ELEMENT);
     })
 
@@ -73,9 +79,23 @@ function renderTodoList() {
         const LI_ELEMENT = document.createElement('LI');
         LI_ELEMENT.innerHTML = todoListItem.todoName;
         LI_ELEMENT.classList.add('todo-done');
-        LI_ELEMENT.addEventListener("click", () => toggleTodo(todoListItem.id))
+        LI_ELEMENT.addEventListener("click", () => toggleTodo(todoListItem.id));
+        const button = createDeleteButtonForTodoItem();
+        button.addEventListener("click",()=> deleteTodoItem(todoListItem.id));
+        LI_ELEMENT.appendChild(button);
         CLOSED_TODOS_LIST_EL.appendChild(LI_ELEMENT);
     })
+}
+
+function deleteTodoItem(todoId: string){
+ todoList = todoList.filter((todoListItem) => {
+        if (todoListItem.id === todoId) {
+            return false; // Item mit der ID fliegt raus
+        }
+        return true; // Items die nicht matchen bleiben drin
+    })
+    saveTodoList();
+    renderTodoList();
 }
 
 function toggleTodo(todoId: string) {
@@ -85,6 +105,7 @@ function toggleTodo(todoId: string) {
         }
         return todoListItem;
     })
+    saveTodoList();
     renderTodoList();
 }
 
