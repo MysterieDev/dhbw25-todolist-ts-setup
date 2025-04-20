@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "fake-api": "json-server db.json",
     "preview": "vite preview"
   },
   "author": "",
@@ -13,5 +14,8 @@
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
   }
 }
