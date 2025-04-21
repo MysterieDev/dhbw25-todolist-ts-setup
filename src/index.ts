@@ -15,7 +15,6 @@ async function showCocktail(){
  const randomCocktailIndex = Math.floor(Math.random() * cocktails.length);
 
  document.querySelector("#name")!.innerHTML = cocktails[randomCocktailIndex].strDrink
- document.querySelector("#description")!.innerHTML = cocktails[randomCocktailIndex].strInstructionsDE
  document.querySelector<HTMLImageElement>("#thumb")!.src = cocktails[randomCocktailIndex].strDrinkThumb
     
 }
