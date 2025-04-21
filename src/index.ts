@@ -1,8 +1,14 @@
 import { COCKTAIL_FAVORITES, COCKTAIL_BTN, COCKTAIL_FAVORITE_BTN, cocktailBtn } from "./dom-utils";
 import { Cocktail } from "./interface";
 import { COCKTAILS_LOCALSTORAGE_KEY, setLocalstorageCocktails } from "./localstorage";
+
+// APP STATE - we could outsource this into a state.ts module with getters and setters
 let currentCocktail: Cocktail;
 let favoriteCocktails: Cocktail[] = [];
+
+// ---
+
+
 function getCocktails(params: string) {
     return fetch(`http://localhost:3000/drinks${params ? "?" + params : ""}`)
         .then(res => res.json())
