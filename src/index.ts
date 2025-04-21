@@ -1,4 +1,4 @@
-import { COCKTAIL_FAVORITES, COCKTAIL_BTN, COCKTAIL_FAVORITE_BTN, cocktailBtn } from "./dom-utils";
+import { COCKTAIL_FAVORITES, COCKTAIL_BTN, COCKTAIL_FAVORITE_BTN} from "./dom-utils";
 import { Cocktail } from "./interface";
 import { COCKTAILS_LOCALSTORAGE_KEY, setLocalstorageCocktails } from "./localstorage";
 
